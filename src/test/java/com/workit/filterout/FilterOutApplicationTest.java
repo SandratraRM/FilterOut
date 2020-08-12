@@ -1,7 +1,12 @@
 package com.workit.filterout;
 import org.junit.Ignore;
 import org.junit.Test;
+
+import java.io.File;
 import java.net.URL;
+
+import static org.junit.Assert.assertTrue;
+
 public class FilterOutApplicationTest {
     @Test
     @Ignore
@@ -11,5 +16,7 @@ public class FilterOutApplicationTest {
         String output = "outputResult.txt";
         String[] args = {"-i" , url.getFile(), "-o",output,"word2","word3"};
         FilterOutApplication.main(args);
+        File file = new File(output);
+        assertTrue(file.exists());
     }
 }
