@@ -9,7 +9,7 @@ public class FilterOutApplicationTest {
         URL url = this.getClass().getClassLoader().getResource("input.txt");
         if (url == null) throw new RuntimeException("Input file for test is not found");
         String output = "outputResult.txt";
-        String[] args = {"-i" , url.getFile(), "-o",output,"words2","words3"};
+        String[] args = {"-i" , url.getFile(), "-o",output,"word2","word3"};
         FilterOutApplication.main(args);
     }
 }
