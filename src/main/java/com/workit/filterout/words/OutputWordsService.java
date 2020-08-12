@@ -25,5 +25,6 @@ public class OutputWordsService {
         if(!path.isAbsolute())
             path = Paths.get(System.getProperty("user.dir"),outputFileName);
         Files.write(path,toSave.getBytes());
+        System.out.println("Written file in " + path.toString());
     }
 }

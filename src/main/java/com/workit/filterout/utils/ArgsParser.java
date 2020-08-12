@@ -63,7 +63,7 @@ public class ArgsParser {
             setOutput(commandLine.getOptionValue(OUTPUT_KEY));
             setRemainingArgs(commandLine.getArgList());
         }catch (ParseException e){
-            helpFormatter.printHelp("filterout <options> [excludeWord1 [excludeWord2 ...]]\r\nOptions:\r\n",options);
+            helpFormatter.printHelp("... <options> [excludeWord1 [excludeWord2 ...]]\r\nOptions:\r\n",options);
             System.exit(1);
         }
     }

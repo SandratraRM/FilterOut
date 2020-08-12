@@ -11,9 +11,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.core.env.StandardEnvironment;
+import org.springframework.core.env.Environment;
+
 import java.util.HashSet;
 import java.util.Set;
+
 import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Configuration
@@ -21,7 +23,7 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 @ComponentScan(basePackageClasses = FilterOutController.class)
 public class AppConfig {
     @Autowired
-    private StandardEnvironment environment;
+    private Environment environment;
 
     @Autowired
     private ApplicationContext applicationContext;

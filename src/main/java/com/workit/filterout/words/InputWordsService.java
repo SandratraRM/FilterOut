@@ -12,15 +12,18 @@ import static org.apache.commons.lang3.StringUtils.isBlank;
 
 @Service
 public class InputWordsService {
-    private String inputFileName;
+    private File file;
 
     public InputWordsService(String inputFileName) {
-        this.inputFileName = inputFileName;
+        if (isBlank(inputFileName)) throw new IllegalArgumentException("Blank input filename");
+        this.file = new File(inputFileName);
+    }
+
+    public InputWordsService(File inputFile){
+        this.file = inputFile;
     }
 
     public List<String> getWordsFromInputFile() throws FileNotFoundException {
-        if (isBlank(inputFileName)) throw new IllegalArgumentException("Blank input filename, use --input=<filename> to specify the input file");
-        File file = new File(inputFileName);
         if (!file.exists() || !file.isFile()) throw new FileNotFoundException("Input file doesn't exist or is a directory");
         Scanner scanner = new Scanner(file);
         ArrayList<String> inputWords = new ArrayList<>();
